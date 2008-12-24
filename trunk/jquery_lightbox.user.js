@@ -13,21 +13,31 @@ addScriptAndCSS();
 
 function addScriptAndCSS() {
 	var head=document.getElementsByTagName("head")[0];
-	var script1=document.createElement("script");
-	script1.type="text/javascript";
-	script1.src="http://gm-jquery-lightbox.googlecode.com/files/jquery-1.2.6.pack.js";
-	head.appendChild(script1);
-	var script2=document.createElement("script");
-	script2.type="text/javascript";
-	script2.src="http://gm-jquery-lightbox.googlecode.com/files/jquery.lightbox-0.5.pack.js";
-	head.appendChild(script2);
-	var script3=document.createElement("script");
-	script3.type="text/javascript";
-	script3.src="http://gm-jquery-lightbox.googlecode.com/files/ActiveLightbox.js";
-	head.appendChild(script3);
-	var link=document.createElement("link");
-	link.rel="stylesheet";
-	link.type="text/css";
-	link.href="http://gm-jquery-lightbox.googlecode.com/files/jquery.lightbox-0.5.css";
-	head.appendChild(link);
+    var scs = head.getElementsByTagName('script');
+    var hasJQ = false, hasLB = false;
+    for(var ind in scs)
+    {
+        if(/jquery\-1\.2\.6/i.test(scs[ind].src)) hasJQ = true;
+        if(/lightbox/i.test(scs[ind].src)) hasLB = true;
+    }
+    if(hasLB) return false;
+    if(!hasJQ)
+    {
+        var s1=document.createElement("script");
+        s1.type="text/javascript";
+        s1.src="http://t2.phpz.org/jlb/jquery-1.2.6.pack.js";
+        head.appendChild(s1);
+    }
+	var s2=document.createElement("script");
+	s2.type="text/javascript";
+	s2.src="http://t2.phpz.org/jlb/jquery.lightbox-0.5.pack.js";
+	head.appendChild(s2);
+	var s3=document.createElement("script");
+	s3.type="text/javascript";
+	s3.src="http://t2.phpz.org/jlb/ActiveLightbox.js";
+	head.appendChild(s3);
+	var l1=document.createElement("link");
+	l1.rel="stylesheet";
+	l1.href="http://t2.phpz.org/jlb/jquery.lightbox-0.5.css";
+	head.appendChild(l1);
 }

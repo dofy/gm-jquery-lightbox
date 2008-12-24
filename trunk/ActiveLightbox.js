@@ -24,22 +24,11 @@ function __jlb_init_gr()
 
 function __jlb_init(obj)
 {
-    $(obj + 'a[href$=jpg]')
-    .add(obj + 'a[href$=jpeg]')
-    .add(obj + 'a[href$=jpe]')
-    .add(obj + 'a[href$=jfjf]')
-    .add(obj + 'a[href$=gif]')
-    .add(obj + 'a[href$=png]')
-    .add(obj + 'a[href$=bmp]')
-    .add(obj + 'a[href$=dib]')
-    .add(obj + 'a[href$=JPG]')
-    .add(obj + 'a[href$=JPEG]')
-    .add(obj + 'a[href$=JPE]')
-    .add(obj + 'a[href$=JFJF]')
-    .add(obj + 'a[href$=GIF]')
-    .add(obj + 'a[href$=PNG]')
-    .add(obj + 'a[href$=BMP]')
-    .add(obj + 'a[href$=DIB]')
+    $(obj + 'a')
+    .filter(function()
+    {
+        return /jpg$|jpeg$|jpe$|jfjf$|gif$|png$|bmp$|dib$/i.test(this.href);
+    })
     .lightBox({
         overlayOpacity: 0.6,
         imageBlank: "data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==",
