@@ -12,6 +12,7 @@
 addScriptAndCSS();
 
 function addScriptAndCSS() {
+    var baseUrl = 'http://gm-jquery-lightbox.googlecode.com/files/';
 	var head=document.getElementsByTagName("head")[0];
     var scs = head.getElementsByTagName('script');
     var hasJQ = false, hasLB = false;
@@ -25,19 +26,19 @@ function addScriptAndCSS() {
     {
         var s1=document.createElement("script");
         s1.type="text/javascript";
-        s1.src="http://t2.phpz.org/jlb/jquery-1.2.6.pack.js";
+        s1.src=baseUrl + "jquery-1.2.6.pack.js";
         head.appendChild(s1);
     }
 	var s2=document.createElement("script");
 	s2.type="text/javascript";
-	s2.src="http://t2.phpz.org/jlb/jquery.lightbox-0.5.pack.js";
+	s2.src=baseUrl + "jquery.lightbox-0.5.pack.js";
 	head.appendChild(s2);
 	var s3=document.createElement("script");
 	s3.type="text/javascript";
-	s3.src="http://t2.phpz.org/jlb/ActiveLightbox.js";
+	s3.src=baseUrl + "ActiveLightbox.js";
 	head.appendChild(s3);
 	var l1=document.createElement("link");
 	l1.rel="stylesheet";
-	l1.href="http://t2.phpz.org/jlb/jquery.lightbox-0.5.css";
+	l1.href=baseUrl + "jquery.lightbox-0.5.css";
 	head.appendChild(l1);
 }
